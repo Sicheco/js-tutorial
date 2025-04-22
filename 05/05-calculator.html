@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <style>
+    .calculator-container {
+      width: 212px;
+    }
+
+    .calculator-title {
+      text-align: center;
+    }
+
+    .calculator-link {
+      margin: 5px 0 0 0;
+    }
+
+    .button {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator-container">
+    <div class="calculator-title">
+      Calculator
+    </div>
+    <div class="calculator-link">
+      <button class="button" onclick="
+      addToCalculation(' 1');
+      ">
+        1
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 2');
+      ">
+        2
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 3');
+      ">
+        3
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' +');
+      ">
+        +
+      </button>
+    </div>
+
+    <div class="calculator-link">
+      <button class="button" onclick="
+      addToCalculation(' 4');
+      ">
+        4
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 5');
+      ">
+        5
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 6');
+      ">
+        6
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' -');
+      ">
+        -
+      </button>
+    </div>
+
+    <div class="calculator-link">
+      <button class="button" onclick="
+      addToCalculation(' 7');
+      ">
+        7
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 8');
+      ">
+        8
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' 9');
+      ">
+        9
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' *');
+      ">
+        x
+      </button>
+    </div>
+
+    <div class="calculator-link">
+      <button class="button" onclick="
+      addToCalculation('0');
+      ">
+        0
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' .');
+      ">
+        .
+      </button>
+
+      <button class="button" onclick="
+      calculation = eval(calculation);
+      console.log(calculation);
+      ">
+        =
+      </button>
+
+      <button class="button" onclick="
+      addToCalculation(' /');
+      ">
+        /
+      </button>
+    </div>
+
+    <div class="calculator-link">
+      <button class="button" onclick="
+        calculation = '';
+        console.log('calculator was cleared');
+        ">
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let calculation = '';
+
+    function addToCalculation(value) {
+      calculation = calculation + value;
+      console.log(calculation);
+    }
+  </script>
+</body>
+
+</html>
