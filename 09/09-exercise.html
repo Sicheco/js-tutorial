@@ -8,8 +8,72 @@
 </head>
 
 <body>
-  <script>
+  <button class="js-button">
+    button
+  </button>
 
+  <button class="js-button-2">
+    yea
+  </button>
+
+  <div>
+    <button js-heads onclick="
+      displayGuess('heads');
+      ">
+      heads
+    </button>
+
+    <button js-tails onclick="
+    displayGuess('tails');
+    ">
+      tails
+    </button>
+
+    <p class="js-guess">
+
+    </p>
+  </div>
+
+  <input class="js-name-input" type="search" placeholder="Name" onkeydown="
+  handleNameKeydown(event);
+  ">
+
+  <button onclick="
+  displayName();
+  ">
+    Submit
+  </button>
+
+  <p class="js-name">
+
+  </p>
+
+  <script>
+    function handleNameKeydown(event) {
+      if (event.key === 'Enter') {
+        displayName();
+      }
+    }
+
+    function displayGuess(guess) {
+      if (guess === 'heads') {
+        document.querySelector('.js-guess').innerHTML = `You chose: ${guess}`;
+      }
+      else if (guess === 'tails') {
+        document.querySelector('.js-guess').innerHTML = `You chose: ${guess}`;
+      }
+    }
+
+    function displayName() {
+      const nameElement = document.querySelector('.js-name-input');
+
+      document.querySelector('.js-name').innerHTML = `Your name is : ${nameElement.value}`;
+    }
+
+    const buttonElement = document.querySelector('.js-button');
+    console.log(buttonElement);
+
+    document.querySelector('.js-button-2').innerHTML = '9b done!'; 
   </script>
 </body>
 

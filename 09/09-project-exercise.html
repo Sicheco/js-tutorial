@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Exercise</title>
+</head>
+
+<body>
+  <p>
+    YouTube Subscribe Button
+  </p>
+
+  <button class="js-subscribe-button" onclick="
+  toggleSubscribe();
+  ">
+    Subscribe
+  </button>
+
+  <p>
+    Amazon Shipping Calculator
+  </p>
+
+  <p>
+    Orders under &#36;40 = +10 shipping.
+  </p>
+
+  <p>
+    Orders over &#36;40 = FREE shipping.
+  </p>
+
+  <input class="js-cost-input" type="search" placeholder="Cost of order" onkeydown="
+    handleCostKeydown(event);
+  ">
+
+  <button onclick="
+  calculateCost();
+  ">
+    Calculate
+  </button>
+
+  <p class="js-total-cost" onclick="
+  calculateCost();
+  ">
+
+  </p>
+
+  <input class="js-onkeyup-input" type="search" placeholder="Type here" onkeyup="
+  handleOnKeyup(event);
+  ">
+
+  <p class="js-onkeyup">
+
+  </p>
+
+  <script>
+    function toggleSubscribe() {
+      const subscribeButtonElement = document.querySelector('.js-subscribe-button');
+
+      if (subscribeButtonElement.innerText === 'Subscribe') {
+        subscribeButtonElement.innerHTML = 'Subscribed';
+      }
+      else {
+        subscribeButtonElement.innerHTML = 'Subscribe';
+      }
+    }
+
+    function calculateCost() {
+      const costElement = document.querySelector('.js-cost-input');
+
+      let cost = Number(costElement.value);
+      console.log(cost);
+
+      if (cost < 4000) {
+        cost = ((cost * 100) + 1000) / 100;
+      }
+
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    }
+
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+        calculateCost();
+      }
+    }
+
+    function handleOnKeyup(event) {
+      onKeyupElement = document.querySelector('.js-onkeyup');
+
+      onKeyupElement.innerText += event.key;
+    }
+  </script>
+</body>
+
+</html>
