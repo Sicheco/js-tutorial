@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .subscribe-button {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      margin-bottom: 30px;
+      padding: 10px 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .is-subscribed {
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    .cost-input {
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .calculate-button {
+      background-color: green;
+      color: white;
+      font-size: 15px;
+      border: none;
+      padding: 12px 15px;
+      cursor: pointer;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <p>
+    YouTube Subscribe Button
+  </p>
+
+  <button class="js-subscribe-button subscribe-button" onclick="
+  toggleSubscribe();
+  ">
+    Subscribe
+  </button>
+
+  <p>
+    Amazon Shipping Calculator
+  </p>
+
+  <p>
+    Orders under &#36;40 = +10 shipping.
+  </p>
+
+  <p>
+    Orders over &#36;40 = FREE shipping.
+  </p>
+
+  <input class="js-cost-input cost-input" type="search" placeholder="Cost of order" onkeydown="
+    handleCostKeydown(event);
+  ">
+
+  <button class="calculate-button" onclick="
+  calculateCost();
+  ">
+    Calculate
+  </button>
+
+  <p class="js-total-cost" onclick="
+  calculateCost();
+  ">
+
+  </p>
+
+  <script>
+    function toggleSubscribe() {
+      const subscribeButtonElement = document.querySelector('.js-subscribe-button');
+
+      if (subscribeButtonElement.innerText === 'Subscribe') {
+        subscribeButtonElement.innerHTML = 'Subscribed';
+        subscribeButtonElement.classList.add('is-subscribed');
+      }
+      else {
+        subscribeButtonElement.innerHTML = 'Subscribe';
+        subscribeButtonElement.classList.remove('is-subscribed');
+      }
+    }
+
+    function calculateCost() {
+      const costElement = document.querySelector('.js-cost-input');
+
+      let cost = Number(costElement.value);
+
+      if (cost < 4000) {
+        cost = ((cost * 100) + 1000) / 100;
+      }
+
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    }
+
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+        calculateCost();
+      }
+    }
+  </script>
+</body>
+
+</html>

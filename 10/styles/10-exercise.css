@@ -1,0 +1,46 @@
+.body {
+  font-family: Arial;
+}
+
+.add-button {
+  background-color: rgb(255, 216, 20);
+  color: black;
+  border: 0px none;
+  border-radius: 20px;
+  padding: 6px 32px;
+  cursor: pointer;
+}
+
+.request-button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 0px none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.schedule-button {
+  background-color: rgb(230, 230, 230);
+  color: black;
+  font-weight: bold;
+  border: 0px none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button-design {
+  background-color: rgb(225, 225, 225);
+  color: black;
+  border: 0px none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.is-toggled {
+  background-color: black;
+  color: white;
+}

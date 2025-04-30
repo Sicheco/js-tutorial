@@ -1,0 +1,30 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: white;
+  font-size: 40px;
+  font-family: Arial;
+  font-weight: bold;
+  text-align: center;
+}
+
+.js-calculation {
+  font-size: 35px;
+}
+
+.calculator-link {
+  margin: 5px 0 0 0;
+}
+
+.button {
+  font-size: 15px;
+  font-family: Arial;
+  font-weight: bold;
+  height: 68px;
+  width: 68px;
+  cursor: pointer;
+}
+
+.black-button {
+  background-color: rgb(45, 45, 45);
+  color: white;
+}
