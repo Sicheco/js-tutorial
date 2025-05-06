@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge</title>
+</head>
+
+<body>
+  <script>
+    function minMax(array) {
+      const number = {
+        minimum: null,
+        maximum: null
+      };
+
+      for (let i = 0; i < array.length; i++) {
+        if (number.minimum === null || array[i] < number.minimum) {
+          number.minimum = array[i];
+        }
+        if (number.maximum === null || array[i] > number.maximum) {
+          number.maximum = array[i];
+        }
+      }
+      return number;
+    }
+
+    console.log(minMax([1, 2, 5, -9, 52]));
+    console.log(minMax([-2, -33, 108, 57, 0]));
+    console.log(minMax([3]));
+    console.log(minMax([]));
+
+    function countWords(array) {
+      const words = {};
+
+      for (let i = 0; i < array.length; i++) {
+        if (!words[array[i]]) {
+          words[array[i]] = 1;
+        }
+        else {
+          words[array[i]]++;
+        }
+      }
+      return words;
+    }
+
+    console.log(countWords(['apple', 'banana', 'apple', 'orange']));
+    console.log(countWords(['shalom', 'rahu', 'pylgia', 'shalom']));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise</title>
+</head>
+
+<body>
+  <script>
+    const number = [10, 20, 30];
+    const list = ['shalom', 'es', 'rahu'];
+    number[2] = 99;
+    console.log(number);
+
+    function getLastValue(array) {
+      const lastValue = array.length - 1;
+      return array[lastValue];
+    }
+
+    console.log(getLastValue(number));
+    console.log(getLastValue(list));
+
+    function arraySwap(array) {
+      const lastValue = array.length - 1;
+      const temp = array[lastValue];
+      array[lastValue] = array[0];
+      array[0] = temp;
+      return array;
+    }
+
+    console.log(arraySwap(number));
+    console.log(arraySwap(list));
+
+    let i = 0;
+
+    while (i <= 10) {
+      console.log(i);
+      i = i + 2;
+    }
+
+    let j = 5;
+
+    while (j >= 0) {
+      console.log(j);
+      j--;
+    }
+
+    let number2 = [1, 2, 3];
+    let number3 = [];
+
+    for (let i = 0; i < number2.length; i++) {
+      number3[i] = number2[i] + 1;
+    }
+
+    console.log(number3);
+
+
+    function addOne(array) {
+      for (let i = 0; i < array.length; i++){
+        array[i]++;
+      }
+      return array;
+    }
+
+    console.log(addOne(number));
+    console.log(addOne(number2));
+
+    const number4 = [10, 30, 50];
+
+    function addNum(array, num) {
+      for (let i = 0; i < array.length; i++) {
+        array[i] = array[i] + num;
+      }
+      return array;
+    }
+
+    console.log(addNum(number4, 10));
+    console.log(addNum([-2, 3, -5, 7, 99], 2));
+
+    const number5 = [1, -6, -10];
+    const number6 = [-5, 2, 103];
+
+    function addArrays(array1, array2) {
+      const result = [];
+
+      for (let i = 0; i < array1.length; i++) {
+        result.push(array1[i] + array2[i]);
+      }
+      return result;
+    }
+
+    console.log(addArrays(number5, number6));
+    console.log(addArrays([1, 2, 3], [2, 3, 4]));
+
+    function countPositive(array) {
+      let positiveCounter = 0;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+          positiveCounter++;
+        }
+      }
+      return positiveCounter;
+    }
+
+    console.log(countPositive([1, 86, -99]));
+  </script>
+</body>
+
+</html>

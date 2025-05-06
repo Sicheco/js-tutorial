@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 2</title>
+</head>
+
+<body>
+  <script>
+    const words = ['shalom', 'rahu', 'search'];
+    const words2 = ['shalom', 'lia', 'rahu'];
+
+    function findIndex(array, word) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    console.log(findIndex(words, 'search'));
+    console.log(findIndex(words2, 'search'));
+
+    const foods = ['egg', 'milk', 'egg', 'meat', 'water', 'egg', 'cereal'];
+
+    function removeEgg(array) {
+      const arrayCopy = array.slice();
+      const reversedArray = arrayCopy.reverse();
+      const foodList = [];
+      let eggsRemoved = 0;
+
+      for (let i = 0; i < reversedArray.length; i++) {
+        if (reversedArray[i] === 'egg' && eggsRemoved < 2) {
+          eggsRemoved++;
+          continue;
+        }
+        foodList.push(array[i]);
+      }
+      return foodList.reverse();
+    }
+
+    console.log(removeEgg(foods));
+    console.log(foods);
+
+  </script>
+</body>
+
+</html>

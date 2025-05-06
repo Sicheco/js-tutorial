@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 2</title>
+</head>
+
+<body>
+  <script>
+    for (let i = 1; i <= 20; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        console.log('FizzBuzz');
+        continue;
+      }
+      if (i % 3 === 0) {
+        console.log('Fizz');
+        continue;
+      }
+      if (i % 5 === 0) {
+        console.log('Buzz');
+        continue;
+      }
+      console.log(i);
+    }
+
+    function findIndex(array, word) { //[shalom lia rahu], shalom
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function removeDuplicate(array) {
+      const uniqueArray = [];
+
+      for (let i = 0; i < array.length; i++) {
+        if (findIndex(uniqueArray, array[i]) === -1) {
+          uniqueArray.push(array[i]);
+        }
+      }
+      return uniqueArray;
+    }
+
+    const array = ['shalom', 'lia', 'rahu', 'shalom', 'rahu', 'lia'];
+
+    console.log(removeDuplicate(array));
+    console.log(removeDuplicate(['rahu', 'shalom', 'rahu']));
+  </script>
+</body>
+
+</html>
