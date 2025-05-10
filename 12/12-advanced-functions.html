@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions</title>
+</head>
+
+<body>
+  <button class="js-button" onclick="
+    
+    ">
+    Click
+  </button>
+
+  <script>
+    /*
+    const buttonElement = document.querySelector('.js-button');
+
+    const eventListener = () => {
+      console.log('Shalom');
+    };
+    buttonElement.addEventListener('click', eventListener);
+
+    buttonElement.removeEventListener('click', eventListener);
+
+    buttonElement.addEventListener('click', () => {
+      console.log('Rahu');
+    });
+    */
+
+    /*
+    function greeting() {
+      console.log('Hello');
+    }
+
+    greeting();
+
+    const num = 2;
+    const function1 = function () {
+      console.log('Hi');
+    };
+
+    console.log(function1);
+    console.log(typeof function1);
+    function1();
+
+    const object1 = {
+      num: 2,
+      fun: function() {
+        console.log('Shalom');
+      }
+    };
+
+    object1.fun();
+
+    function render(param) {
+      console.log(param);
+    }
+    render(2);
+  
+    function run(param) {
+      param();
+    }
+
+    run(function() {
+      console.log('Lia');
+    });
+    */
+
+    /*
+    setTimeout(function() {
+      console.log('wake up');
+    }, 3000);
+
+    console.log('next line');
+
+    setInterval(function() {
+      console.log('interval');
+    }, 1000);
+
+    console.log('line next');
+    */
+
+    /*
+    ['cook', 'wash', 'play'].forEach((value, index) => {
+      if (value === 'wash') {
+        return;
+      }
+      console.log(index);
+      console.log(value);
+    });
+
+    const regFunction = function(param, param2) {
+      console.log('Rahu');
+      return 5;
+    }
+
+    const arrowFunction = (param, param2) => {
+      console.log('Shalom');
+      return 5;
+    };
+
+    arrowFunction();
+
+    const oneParam = param => {
+      console.log(param + 1);
+    }
+
+    oneParam(2);
+
+    const oneLine = () => 2 + 3;
+
+    console.log(oneLine());
+
+    const object2 = {
+      method: () => {
+
+      },
+      method() {
+
+      }
+    };
+    */
+
+    console.log([1, -3, 5].filter((value, index) => {
+      return value >= 0;
+    }));
+
+    console.log([1, 1, 3].map((value, index) => {
+      return value * 2;
+    }));
+
+    console.log([1, 1, 3].map(value => value * 2
+    ));
+  </script>
+</body>
+
+</html>

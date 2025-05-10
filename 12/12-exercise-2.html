@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const multiply = (num1, num2) => num1 * num2;
+
+    console.log(multiply(8, 2));
+
+    function countPositive(array) {
+      let positiveCount = 0;
+      array.forEach((value) => {
+        if (value > 0) {
+          positiveCount++;
+        }
+      });
+      return positiveCount;
+    }
+
+    console.log(countPositive([1, -1, 2, 9, -3, 0]));
+
+    function addNum(array, num) {
+      return array.map(value => value + num);
+    }
+
+    console.log(addNum([1, 2, 0], 3));
+
+    function removeEggs(array) {
+      let removedEggs = 0;
+      return array.filter(value => {
+        if (value === 'egg' && removedEggs < 2) {
+          removedEggs++;
+          return false;
+        }
+        return true;
+      });
+    }
+
+    console.log(removeEggs(['egg', 'pizza', 'shawarma', 'egg', 'donut', 'egg', 'salad']));
+  </script>
+</body>
+
+</html>
