@@ -1,3 +1,5 @@
+import { cart } from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -93,6 +95,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 
     addedMessage.classList.add('added-to-cart-visible');
 
+    //accessing object that stores products id
     const previousTimeoutId = addedMessageTimeouts[productId];
     if (previousTimeoutId) {
       clearTimeout(previousTimeoutId);
