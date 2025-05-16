@@ -32,6 +32,45 @@ export function addToCart(productId) {
   saveToStorage();
 }
 
+export function calculateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity = cartQuantity + cartItem.quantity;
+  });
+  return cartQuantity;
+}
+
+export function updateQuantity(productId, newQuantity) {
+  cart.forEach((cartItem) => {
+    if (cartItem.productId === productId) {
+      cartItem.quantity = newQuantity;
+    }
+  });
+
+  updateCartQuantity();
+  saveToStorage();
+}
+
+export function updateCartQuantity() {
+  const cartQuantity = calculateCartQuantity();
+
+  document.querySelector('.js-return-to-home-link').innerText = `${cartQuantity} items`;
+}
+
+export function handleUpdateQuantity(productId, quantityInput) {
+  const newQuantity = Number(quantityInput.value);
+  console.log(newQuantity);
+  if (newQuantity >= 0 && newQuantity < 1000) {
+    updateQuantity(productId, newQuantity);
+
+    document.querySelector(`.js-quantity-label-${productId}`).innerText = newQuantity;
+  }
+
+  const container = document.querySelector(`.js-cart-item-container-${productId}`);
+  container.classList.remove('is-editing-quantity');
+}
+
 export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {
@@ -40,6 +79,7 @@ export function removeFromCart(productId) {
     }
   });
   cart = newCart;
+  updateCartQuantity();
   saveToStorage();
 }
 
