@@ -1,4 +1,4 @@
-import { cart, removeFromCart, calculateCartQuantity, updateQuantity, updateCartQuantity, handleUpdateQuantity, saveToStorage } from "../data/cart.js";
+import { cart, removeFromCart, calculateCartQuantity, updateQuantity, updateCartQuantity, handleUpdateQuantity, updateDeliveryOption, saveToStorage } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
 import { formatCurrency } from "./utils/money.js";
@@ -6,9 +6,6 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 
 updateCartQuantity();
-const today = dayjs();
-const deliveryDate = today.add(7, 'days');
-console.log(deliveryDate.format('dddd, MMMM D'));
 
 let cartHTML = '';
 
@@ -38,7 +35,7 @@ cart.forEach((cartItem) => {
   cartHTML += `
     <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
       <div class="delivery-date">
-        ${dateString}
+        Delivery date: ${dateString}
       </div>
 
       <div class="cart-item-details-grid">
@@ -90,7 +87,8 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
     const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatCurrency(deliveryOption.priceCents)} -`;
     const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
-    deliveryHTML += `<div class="delivery-option">
+    deliveryHTML += `<div class="delivery-option js-delivery-option" 
+    data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
         <input type="radio" ${isChecked ? 'checked' : ''}
           class="delivery-option-input"
           name="delivery-option-${matchingProduct.id}">
@@ -145,5 +143,12 @@ document.querySelectorAll('.js-save-quantity-link').forEach((saveButton) => {
     if (event.key === 'Enter') {
       handleUpdateQuantity(productId, quantityInput);
     }
+  });
+});
+
+document.querySelectorAll('.js-delivery-option').forEach((link) => {
+  link.addEventListener('click', () => {
+    const { productId, deliveryOptionId } = link.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
   });
 });

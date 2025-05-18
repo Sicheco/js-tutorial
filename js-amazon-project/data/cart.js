@@ -74,6 +74,19 @@ export function handleUpdateQuantity(productId, quantityInput) {
   container.classList.remove('is-editing-quantity');
 }
 
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  let matchingItem;
+
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    }
+  });
+  
+  matchingItem.deliveryOptionId = deliveryOptionId;
+  saveToStorage();
+}
+
 export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {
