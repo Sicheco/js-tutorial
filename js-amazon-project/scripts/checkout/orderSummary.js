@@ -1,9 +1,11 @@
 import { cart, removeFromCart, calculateCartQuantity, updateQuantity, updateCartQuantity, handleUpdateQuantity, updateDeliveryOption, saveToStorage } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js";
-import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
+import { deliveryOptions, getDeliveryOption, calculateDeliveryDate } from "../../data/deliveryOptions.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
+import { isWeekend } from '../utils/date.js'
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderOrderSummary() {
   updateCartQuantity();
@@ -17,10 +19,7 @@ export function renderOrderSummary() {
     const deliveryOptionId = cartItem.deliveryOptionId;
     const deliveryOption = getDeliveryOption(deliveryOptionId);
 
-
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    const dateString = calculateDeliveryDate(deliveryOption); 
 
     cartHTML += `
     <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -104,10 +103,8 @@ export function renderOrderSummary() {
       removeFromCart(productId);
       console.log(cart);
 
-      const container = document.querySelector(`.js-cart-item-container-${productId}`);
-      console.log(container);
-
-      container.remove();
+      renderCheckoutHeader();
+      renderOrderSummary();
       renderPaymentSummary();
     });
   });
