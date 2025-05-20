@@ -19,6 +19,7 @@ export function loadFromStorage() {
 
 export function addToCart(productId) {
   let matchingItem;
+  // || 1 is for testing to have value
   const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`) || '1';
   const quantity = Number(quantitySelector.value) || 1;
   //console.log(quantity);
