@@ -20,11 +20,11 @@ const cartQuantity = calculateCartQuantity();
  const estimatedTaxCents = totalBeforeTax * .1;
  const totalCents = totalBeforeTax + estimatedTaxCents;
 
- console.log(productPriceCents);
- console.log(shippingPriceCents);
- console.log(totalBeforeTax);
- console.log(estimatedTaxCents);
- console.log(totalCents);
+ //console.log(productPriceCents);
+ //console.log(shippingPriceCents);
+ //console.log(totalBeforeTax);
+ //console.log(estimatedTaxCents);
+ //console.log(totalCents);
 
  const paymentSummaryHTML = `
   <div class="payment-summary-title">

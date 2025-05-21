@@ -69,7 +69,7 @@ export function renderOrderSummary() {
 
     deliveryOptions.forEach((deliveryOption) => {
       const dateString = calculateDeliveryDate(deliveryOption);
-      console.log(dateString);
+      //console.log(dateString);
 
       const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatCurrency(deliveryOption.priceCents)} -`;
       const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
@@ -99,7 +99,7 @@ export function renderOrderSummary() {
     deleteButton.addEventListener('click', () => {
       const productId = deleteButton.dataset.productId;
       removeFromCart(productId);
-      console.log(cart);
+      //console.log(cart);
 
       renderCheckoutHeader();
       renderOrderSummary();
@@ -110,7 +110,7 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-update-quantity-link').forEach((updateButton) => {
     updateButton.addEventListener('click', () => {
       const productId = updateButton.dataset.productId;
-      console.log(productId);
+      //console.log(productId);
 
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       container.classList.add('is-editing-quantity');
@@ -119,7 +119,7 @@ export function renderOrderSummary() {
 
   document.querySelectorAll('.js-save-quantity-link').forEach((saveButton) => {
     const productId = saveButton.dataset.productId;
-    console.log(productId);
+    //console.log(productId);
     const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
 
     saveButton.addEventListener('click', () => {
