@@ -27,14 +27,17 @@ describe('test suite: renderOrderSummary', () => {
     loadFromStorage();
     renderOrderSummary();
   });
+
+  afterEach(() => {
+    //comment code below for view
+    document.querySelector('.js-test-container').innerHTML = '';
+  });
+
   it('display cart', () => {
     expect(document.querySelectorAll('.js-cart-item-container').length).toEqual(2);
 
     expect(document.querySelector(`.js-product-quantity-${productId1}`).innerText).toContain('Quantity: 2');
 
     expect(document.querySelector(`.js-product-quantity-${productId2}`).innerText).toContain('Quantity: 1');
-
-    //comment code below for view
-    document.querySelector('.js-test-container').innerHTML = '';
   });
 });
