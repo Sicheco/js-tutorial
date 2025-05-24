@@ -124,4 +124,4 @@ class Cart {
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
-console.log(businessCart instanceof Cart);
+//console.log(businessCart instanceof Cart);
