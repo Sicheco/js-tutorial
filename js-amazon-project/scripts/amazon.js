@@ -1,13 +1,16 @@
 import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
-import { products } from '../data/products.js';
+import { products, loadProducts } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
-updateCartQuantity();
+loadProducts(renderProductsGrid);
 
-let productsHTML = '';
+function renderProductsGrid() {
+  updateCartQuantity();
 
-products.forEach((product) => {
-  productsHTML += `
+  let productsHTML = '';
+
+  products.forEach((product) => {
+    productsHTML += `
     <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
@@ -60,42 +63,43 @@ products.forEach((product) => {
       </button>
     </div>
   `;
-});
+  });
 
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
+  document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-const addedMessageTimeouts = {}
+  const addedMessageTimeouts = {}
 
-function updateCartQuantity() {
-  const cartQuantity = calculateCartQuantity();
+  function updateCartQuantity() {
+    const cartQuantity = calculateCartQuantity();
 
-  document.querySelector('.js-cart-quantity').innerText = cartQuantity;
-}
-
-function renderAddedMessage(productId, addedMessageTimeouts) {
-  const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
-
-  addedMessage.classList.add('added-to-cart-visible');
-
-  //accessing object that stores products id
-  const previousTimeoutId = addedMessageTimeouts[productId];
-  if (previousTimeoutId) {
-    clearTimeout(previousTimeoutId);
+    document.querySelector('.js-cart-quantity').innerText = cartQuantity;
   }
 
-  const timeoutId = setTimeout(() => {
-    addedMessage.classList.remove('added-to-cart-visible');
-  }, 2000);
+  function renderAddedMessage(productId, addedMessageTimeouts) {
+    const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
 
-  addedMessageTimeouts[productId] = timeoutId;
-}
+    addedMessage.classList.add('added-to-cart-visible');
 
-document.querySelectorAll('.js-add-to-cart').forEach((button) => {
-  button.addEventListener('click', () => {
-    const { productId } = button.dataset;
+    //accessing object that stores products id
+    const previousTimeoutId = addedMessageTimeouts[productId];
+    if (previousTimeoutId) {
+      clearTimeout(previousTimeoutId);
+    }
 
-    addToCart(productId);
-    updateCartQuantity();
-    renderAddedMessage(productId, addedMessageTimeouts);
+    const timeoutId = setTimeout(() => {
+      addedMessage.classList.remove('added-to-cart-visible');
+    }, 2000);
+
+    addedMessageTimeouts[productId] = timeoutId;
+  }
+
+  document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+    button.addEventListener('click', () => {
+      const { productId } = button.dataset;
+
+      addToCart(productId);
+      updateCartQuantity();
+      renderAddedMessage(productId, addedMessageTimeouts);
+    });
   });
-});
+}
