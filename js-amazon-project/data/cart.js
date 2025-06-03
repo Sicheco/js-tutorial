@@ -72,6 +72,12 @@ export function updateCartQuantity() {
   document.querySelector('.js-return-to-home-link').innerText = `${cartQuantity} items`;
 }
 
+export function updateOrdersCartQuantity() {
+  const cartQuantity = calculateCartQuantity();
+
+  document.querySelector('.js-cart-quantity').innerText = `${cartQuantity}`;
+}
+
 export function handleUpdateQuantity(productId, quantityInput) {
   const newQuantity = Number(quantityInput.value);
   //console.log(newQuantity);
